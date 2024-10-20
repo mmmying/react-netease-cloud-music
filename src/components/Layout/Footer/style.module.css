@@ -1,0 +1,7 @@
+@value footerHeight from '~styles/constants.module.css';
+
+.footer {
+  width: 100%;
+  height: footerHeight;
+  background-color: aliceblue;
+}

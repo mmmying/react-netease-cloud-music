@@ -1,0 +1,7 @@
+@value headerHeight from '~styles/constants.module.css';
+
+.header {
+  width: 100%;
+  height: headerHeight;
+  background-color: #c7332f;
+}

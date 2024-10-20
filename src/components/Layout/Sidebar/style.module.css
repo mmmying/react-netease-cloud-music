@@ -1,0 +1,7 @@
+@value sidebarWidth from '~styles/constants.module.css';
+
+.sidebar {
+  width: sidebarWidth;
+  height: 100%;
+  background-color: #f8f9fa;
+}

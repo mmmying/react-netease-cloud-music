@@ -1,0 +1,7 @@
+@value sidebarWidth from '~styles/constants.module.css';
+
+.menu-item {
+  .active {
+    color: red;
+  }
+}
