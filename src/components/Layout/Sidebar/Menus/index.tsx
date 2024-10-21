@@ -1,6 +1,7 @@
 import { Icon } from "@blueprintjs/core";
-// import style from "./style.module.css";
-import ROUTES from "route"
+import ROUTES from "routes";
+import { Link } from "react-router-dom";
+import style from "./style.module.css";
 
 interface IMenu {
   title: string;
@@ -32,33 +33,44 @@ const Menu: IMenu[] = [
       {
         icon: "heart",
         label: "我喜欢的音乐",
-        route: "/discover"
+        route: "/like"
       },
       {
-        icon: "star-empty",
+        icon: "star",
         label: "我的收藏",
-        route: "/playlist"
+        route: "/star"
       }
     ]
   }
 ];
 const Menus = () => {
   const handleMenuItemClick = (route: string) => {
-    window.location.hash = route;
-  }
+    console.log("handleMenuItemClick", route);
+  };
 
   return (
     <>
       {Menu.map(({ title, items }: any, index: any) => (
         <div key={index}>
-          <div>{title}</div>
+          <div className={style.menuTitle}>{title}</div>
           <div>
-            {items.map(({ icon, label, route }, itemIndex: any) => (
-              <div key={itemIndex} onClick={()=>{handleMenuItemClick(route)}}>
-                <Icon icon={icon} />
-                {label}
-              </div>
-            ))}
+            {items.map(({ icon, label, route }, itemIndex: any) => {
+              return (
+                <div key={itemIndex} className={style.menuItem}>
+                  <Link
+                    to={route}
+                    className={style.link}
+                    onClick={() => {
+                      handleMenuItemClick(route);
+                    }}
+                  >
+                    <Icon icon={icon} />
+                    {label}
+                  </Link>
+                  <br />
+                </div>
+              );
+            })}
           </div>
         </div>
       ))}

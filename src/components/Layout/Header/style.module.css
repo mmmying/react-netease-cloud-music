@@ -1,7 +1,20 @@
 @value headerHeight from '~styles/constants.module.css';
 
 .header {
-  width: 100%;
+  width: calc(100% - 40px);
   height: headerHeight;
-  background-color: #c7332f;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  background-color: #f9374e;
+  font-size: 20px;
+  span {
+    margin-right: 10px;
+    fill: #fff;
+  }
+  .right {
+    display: flex;
+  }
 }

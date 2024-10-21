@@ -1,7 +1,21 @@
 @value sidebarWidth from '~styles/constants.module.css';
 
-.menu-item {
+.menuTitle {
+  margin-bottom: 5px;
+  font-size: 0.8em;
+  color: grey;
+}
+
+.menuItem {
+  margin-bottom: 10px;
+  .link {
+    color: #4d4d4d;
+    text-decoration: none;
+    span {
+      margin-right: 10px;
+    }
+  }
   .active {
-    color: red;
+    color: #c20c0c;
   }
 }
