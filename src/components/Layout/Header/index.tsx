@@ -1,22 +1,71 @@
-import React from "react";
-import style from "./style.module.css";
-import { Icon } from "@blueprintjs/core";
-import { Input, Avatar } from "antd";
-import { SearchOutlined, UserOutlined  } from "@ant-design/icons";
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Icon } from '@blueprintjs/core'
+
+import Navbar from './Navbar'
+import Searcher from './Searcher'
+import { PlayMusicStateContext, PlayMusicDispatchContext, ACTIONS } from 'reducers/playMusic'
+// import { REPOSITORY } from 'constants/github'
+import styles from './style.module.css'
+
+const { useContext } = React
 
 const Header = () => {
+  const navigate = useNavigate()
+  const dispatch = useContext(PlayMusicDispatchContext)
+  const state = useContext(PlayMusicStateContext)
+  const { showLyric } = state
+
+  const handleGoBack = () => navigate(-1)
+  const handleGoForward = () => navigate(1)
+
+  const hideLyric = () => {
+    dispatch({
+      type: ACTIONS.HIDE_LYRIC,
+    })
+  }
+
   return (
-    <div className={style.header}>
-      <div>
-        <Icon icon="music" size={20} />
-        欢迎来到音乐世界
+    <div className={styles.root}>
+      <div className={styles.actions}>
+        <div className={styles.iconsWrap}>
+          <div className={styles.circle}>
+            <Icon icon='cross' iconSize={8} />
+          </div>
+          <div className={styles.circle}>
+            <Icon icon='minus' iconSize={8} />
+          </div>
+          <div className={styles.circle}>
+            <Icon icon='maximize' iconSize={7} />
+          </div>
+          {showLyric && (
+            <div className={styles.down} onClick={hideLyric}>
+              <Icon icon='chevron-down' iconSize={20} />
+            </div>
+          )}
+        </div>
+
+        {!showLyric && (
+          <div className={styles.backForward}>
+            <div onClick={handleGoBack}>
+              <Icon icon='chevron-left' />
+            </div>
+            <div onClick={handleGoForward}>
+              <Icon icon='chevron-right' />
+            </div>
+          </div>
+        )}
       </div>
-      <div className={style.right}>
-        <Input placeholder="请输入" prefix={<SearchOutlined style={{ color: "rgba(0,0,0,.25)" }} />} />
-        <Avatar icon={<UserOutlined />} />
+
+      <div className={styles.content}>
+        <div>{!showLyric && <Navbar />}</div>
+        <div className={styles.operations}>
+          <Searcher />
+          {/* <div className={styles.githubLogo} onClick={() => window.open(REPOSITORY)} /> */}
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

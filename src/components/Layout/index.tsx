@@ -1,15 +1,16 @@
+import React from 'react';
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
-import style from "./style.module.css";
+import styles from "./style.module.css";
 
 const Layout = ({ children }) => {
   return (
-    <div className={style.layout}>
+    <div>
       <Header />
-      <div className={style.container}>
+      <div className={styles.middle}>
         <Sidebar />
-        <div>{children}</div>
+        <div className={styles.content}>{children}</div>
       </div>
       <Footer />
     </div>
