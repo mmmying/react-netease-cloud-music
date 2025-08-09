@@ -25,37 +25,6 @@
   top: 10px;
   left: 8px;
 
-  .circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 14px;
-    height: 14px;
-    margin-right: 5px;
-    border-radius: 50%;
-    cursor: pointer;
-
-    & svg {
-      display: none;
-    }
-  }
-
-  .circle:nth-child(1) {
-    background-color: #ff5652;
-  }
-
-  .circle:nth-child(2) {
-    background-color: #ffb63c;
-  }
-
-  .circle:nth-child(3) {
-    background-color: #00c343;
-  }
-
-  .circle:hover svg {
-    display: block;
-  }
-
   .down {
     display: flex;
     align-items: center;

@@ -1,15 +1,18 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig, ResponseType, AxiosInstance } from "axios";
+import { SERVER } from 'constants/server'
 
-declare module "axios" {
-  interface AxiosInstance {
-    (config: AxiosRequestConfig): Promise<any>;
-  }
+interface Instance extends AxiosInstance {
+  (config: AxiosRequestConfig): Promise<any>;
+}
+const MIME_TYPE: IDictionary<ResponseType> = {
+  JSON: 'json',
 }
 
-const instance = axios.create({
-  baseURL: "http://localhost:3001/api",
+const instance: Instance = axios.create({
+  baseURL: SERVER,
   timeout: 10000,
-  responseType: "json"
+  withCredentials: true,
+  responseType: MIME_TYPE.JSON
 });
 
 const handleResponse = (response: any) => {

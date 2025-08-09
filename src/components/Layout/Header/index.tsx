@@ -29,15 +29,6 @@ const Header = () => {
     <div className={styles.root}>
       <div className={styles.actions}>
         <div className={styles.iconsWrap}>
-          <div className={styles.circle}>
-            <Icon icon='cross' iconSize={8} />
-          </div>
-          <div className={styles.circle}>
-            <Icon icon='minus' iconSize={8} />
-          </div>
-          <div className={styles.circle}>
-            <Icon icon='maximize' iconSize={7} />
-          </div>
           {showLyric && (
             <div className={styles.down} onClick={hideLyric}>
               <Icon icon='chevron-down' iconSize={20} />

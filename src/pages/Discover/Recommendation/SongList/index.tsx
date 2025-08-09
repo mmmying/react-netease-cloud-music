@@ -13,7 +13,6 @@ const { useEffect } = React
 
 const Songlist = () => {
   const [state, personalizedSonglistFn] = useAsyncFn(personalizedApis.getPersonalizedSonglist)
-  console.log('state======', state);
   
   const { value: songlist = [], loading: isGettingSonglist } = state || {}
 

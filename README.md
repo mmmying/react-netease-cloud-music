@@ -16,7 +16,8 @@ https://github.com/uniquemo/react-netease-music 是一个不错的学习 react �
 先将上边两个 API 接口服务拉到本地，并启动服务
 
 再拉取本项目代码，执行以下命令：
-```
+```bash
 yarn install
-yarn start
+yarn run dev:local # 访问本地服务
+yarn run dev # 访问远程服务
 ```

@@ -18,7 +18,6 @@ const Footer = () => {
   const state = useContext(PlayMusicStateContext);
   const dispatch = useContext(PlayMusicDispatchContext);
   const { musicId, music, showLyric } = state;
-  console.log("state:", state);
 
   const togglePlayRecord = useCallback(() => {
     setShowPlayRecord(!showPlayRecord);
@@ -45,6 +44,7 @@ const Footer = () => {
         </div>
       ) : null}
 
+      {/* 歌曲信息 */}
       <div className={styles.songWrap}>
         {!!musicId && (
           <>
@@ -79,6 +79,7 @@ const Footer = () => {
         <PlayOperations />
       </div>
 
+      {/* 右侧工具区 */}
       <div className={styles.otherOperations}>
         <div className={styles.item}>
           <PlayMode />
@@ -93,7 +94,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* 播放列表 */}
+      {/* 播放列表展开 */}
       <PlayRecord show={showPlayRecord} onClickAway={() => setShowPlayRecord(false)} />
     </div>
   );

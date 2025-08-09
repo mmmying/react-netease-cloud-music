@@ -19,7 +19,6 @@ import { IMyMusic } from 'apis/types/business'
 const Video = () => {
   const params = useParams();
   const location = useLocation();
-  console.log("Video: ", params, location);
   return <div>video</div>;
 };
 
@@ -36,7 +35,7 @@ const Video = () => {
 // };
 
 function App() {
-  const [state, dispatch] = useReducer(playMusicReducer, initialState);
+  const [state, dispatch] = useReducer(playMusicReducer, initialState); // 当前播放歌曲
   const { musicId, musicUrl, playMode } = state;
   const playList = useMemo(() => playListLocalStorage.getItem(), [musicId]);
   const [audio, audioState, audioControls, audioRef] = useAudio({
@@ -106,6 +105,7 @@ function App() {
       <PlayMusicStateContext.Provider value={state}>
         <AudioContext.Provider value={audioInfo}>
           <Layout>
+            {audio}
             <Suspense fallback={null}>
               <Routes>
                 <Route path={`${ROUTES.DISCOVERY}/*`} element={<Discover />} />

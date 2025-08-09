@@ -27,6 +27,7 @@ export interface IOptions<Result> {
   errorHandler?: (error: Error) => void;
 }
 
+// 处理异步操作的自定义 Hook
 export default function useAsyncFn<Result = any, Args extends any[] = any[]>(
   fn: (...args: Args) => Promise<Result>,
   options: IOptions<Result> = {
@@ -37,13 +38,13 @@ export default function useAsyncFn<Result = any, Args extends any[] = any[]>(
   const { initialState = { loading: false }, deps = [], successHandler, errorHandler } = options;
 
   const lastCallId = useRef(0);
-  const [state, set] = useState<AsyncState<Result>>(initialState);
+  const [state, setState] = useState<AsyncState<Result>>(initialState);
 
   const isMounted = useMountedState();
 
   const callback = useCallback((...args: Args) => {
     const callId = ++lastCallId.current;
-    set({ loading: true });
+    setState({ loading: true });
 
     return fn(...args).then(
       value => {
@@ -54,14 +55,14 @@ export default function useAsyncFn<Result = any, Args extends any[] = any[]>(
           if (typeof callback === "function") {
             callback();
           }
-          set({ value, loading: false });
+          setState({ value, loading: false });
         }
         return value;
       },
       error => {
         if (isMounted() && callId === lastCallId.current) {
           errorHandler && errorHandler(error);
-          set({ error, loading: false });
+          setState({ error, loading: false });
         }
         return null;
       }
