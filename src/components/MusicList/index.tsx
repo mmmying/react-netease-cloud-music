@@ -44,7 +44,7 @@ const MusicList: React.FC<IProps> = ({ data, onPlayAll }) => {
       },
     },
     {
-      title: '音乐标题',
+      title: 'music.musicTitle',
       key: 'name',
       width: '45%',
       render: (name: string, { alias, id, fee }: IMusic) => {
@@ -60,19 +60,19 @@ const MusicList: React.FC<IProps> = ({ data, onPlayAll }) => {
       },
     },
     {
-      title: '歌手',
+      title: 'music.artist',
       key: 'artists',
       width: '15%',
       render: (artists: IArtist[]) => artists?.map(({ name }) => name).join(' / '),
     },
     {
-      title: '专辑',
+      title: 'music.album',
       key: 'album',
       width: '20%',
       render: (album: IAlbum) => album?.name,
     },
     {
-      title: '时长',
+      title: 'music.duration',
       key: 'duration',
       width: '10%',
       render: (duration: number) => formatTime(duration / 1000),

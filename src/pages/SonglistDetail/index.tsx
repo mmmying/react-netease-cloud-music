@@ -17,11 +17,11 @@ const { useEffect, useContext } = React
 
 const TABS = [
   {
-    label: '歌曲列表',
+    label: 'music.songList',
     key: 'songlist',
   },
   {
-    label: '评论',
+    label: 'music.comment',
     key: 'comment',
   },
 ]

@@ -10,11 +10,15 @@ import personalizedApis from 'apis/personalized'
 
 import styles from './style.module.css'
 
+import { useTranslation } from "react-i18next";
+
 const { useEffect } = React
 
 const MV = () => {
   const [state, getPersonalizedMVFn] = useAsyncFn(personalizedApis.getPersonalizedMV)
   const { value: mvs = [], loading: isGettingMV } = state
+
+  const { t } = useTranslation()
 
   useEffect(() => {
     getPersonalizedMVFn()
@@ -22,7 +26,7 @@ const MV = () => {
 
   return (
     <div className={styles.root}>
-      <LinkTitle title='推荐MV' route={ROUTES.MV} />
+      <LinkTitle title={t('navigation.recommendedMV')} route={ROUTES.MV} />
       {isGettingMV ? (
         <Spinner />
       ) : (

@@ -3,6 +3,8 @@ import cn from 'classnames'
 
 import styles from './style.module.css'
 
+import { useTranslation } from "react-i18next";
+
 interface ITab {
   label?: string
   key: string
@@ -19,6 +21,8 @@ const { useState } = React
 const Tabs: React.FC<IProps> = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState(tabs?.[0].key)
 
+  const { t } = useTranslation()
+
   return (
     <div className={styles.root}>
       {tabs.map(({ label, key, renderLabel, onClick = () => {} }) => {
@@ -31,7 +35,7 @@ const Tabs: React.FC<IProps> = ({ tabs }) => {
               onClick(key)
             }}
           >
-            {label || (renderLabel && renderLabel())}
+            {t(label) || (renderLabel && renderLabel())}
           </div>
         )
       })}

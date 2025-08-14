@@ -35,7 +35,7 @@ function Table<RecordType extends Record<string, any> = any>({
           {columns.map(({ title, width }, index) => {
             return (
               <div key={index} style={{ width }}>
-                {title}
+                {t(title)}
               </div>
             )
           })}

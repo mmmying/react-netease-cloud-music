@@ -27,7 +27,8 @@
     "previous": "上一个",
     "submit": "提交",
     "noData": "暂无数据喔",
-    "total": "共"
+    "total": "共",
+    "clean": "清空"
   },
   "navigation": {
     "home": "首页",
@@ -41,7 +42,9 @@
     "playlist": "歌单",
     "latest": "最新音乐",
     "artist": "歌手",
-    "album": "专辑"
+    "album": "专辑",
+    "recommendedPlaylist": "推荐歌单",
+    "recommendedMV": "推荐MV"
   },
   "music": {
     "play": "播放",
@@ -68,7 +71,10 @@
     "genre": "流派",
     "year": "年份",
     "bitrate": "比特率",
-    "format": "格式"
+    "format": "格式",
+    "songList": "歌曲列表",
+    "comment": "评论",
+    "musicTitle": "音乐标题"
   },
   "auth": {
     "loginTitle": "登录您的账户",

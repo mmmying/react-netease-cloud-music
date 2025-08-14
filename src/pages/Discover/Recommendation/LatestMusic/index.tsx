@@ -10,11 +10,15 @@ import personalizedApis from 'apis/personalized'
 
 import styles from './style.module.css'
 
+import { useTranslation } from "react-i18next";
+
 const { useEffect } = React
 
 const LatestMusic = () => {
   const [state, getPersonalizedNewMusicFn] = useAsyncFn(personalizedApis.getPersonalizedNewMusic)
   const { value: music = [], loading } = state
+
+  const { t } = useTranslation()
 
   useEffect(() => {
     getPersonalizedNewMusicFn()
@@ -22,7 +26,7 @@ const LatestMusic = () => {
 
   return (
     <div className={styles.root}>
-      <LinkTitle title='最新音乐' route={ROUTES.LATEST_MUSIC} />
+      <LinkTitle title={t('navigation.latest')} route={ROUTES.LATEST_MUSIC} />
       {loading ? (
         <Spinner />
       ) : (

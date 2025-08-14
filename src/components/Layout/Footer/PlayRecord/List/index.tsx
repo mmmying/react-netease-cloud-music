@@ -68,7 +68,7 @@ const List: React.FC<IProps> = ({ data, onDoubleClick, onClear }) => {
           <div className={styles.actions}>
             <div onClick={onClear}>
               <Icon icon='trash' iconSize={15} />
-              {' 清空'}
+              {t('common.clean')}
             </div>
           </div>
         )}

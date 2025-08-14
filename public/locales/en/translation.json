@@ -27,7 +27,8 @@
     "previous": "Previous",
     "submit": "Submit",
     "noData": "No data available",
-    "total": "Total"
+    "total": "Total",
+    "clean": "Clean"
   },
   "navigation": {
     "home": "首页",
@@ -41,7 +42,9 @@
     "playlist": "Playlist",
     "latest": "Latest",
     "singer": "Singer",
-    "album": "Album"
+    "album": "Album",
+    "recommendedPlaylist": "Recommended Playlist",
+    "recommendedMV": "Recommended MV"
   },
   "music": {
     "play": "Play",
@@ -68,7 +71,10 @@
     "genre": "Genre",
     "year": "Year",
     "bitrate": "Bitrate",
-    "format": "Format"
+    "format": "Format",
+    "songList": "Song List",
+    "comment": "Comment",
+    "musicTitle": "Music Title"
   },
   "auth": {
     "loginTitle": "Login to Your Account",
