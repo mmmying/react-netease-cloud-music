@@ -6,6 +6,7 @@ import PlayHistory from './PlayHistory'
 import useClickAway from 'hooks/useClickAway'
 import styles from './style.module.css'
 
+import { useTranslation } from "react-i18next";
 interface ITab {
   tab: string
   tabKey: string
@@ -20,11 +21,11 @@ const { useState, useRef } = React
 
 const TABS: IDictionary<ITab> = {
   PLAY_LIST: {
-    tab: '播放列表',
+    tab: 'music.playlist',
     tabKey: 'PLAY_LIST',
   },
   PLAY_HISTORY: {
-    tab: '历史记录',
+    tab: 'music.playHistory',
     tabKey: 'PLAY_HISTORY',
   },
 }
@@ -32,6 +33,8 @@ const TABS: IDictionary<ITab> = {
 const PlayRecord: React.FC<IProps> = ({ show, onClickAway }) => {
   const playRecordRef = useRef<HTMLDivElement | null>(null)
   const [activeTab, setActiveTab] = useState(TABS.PLAY_LIST.tabKey)
+
+  const { t } = useTranslation();
 
   useClickAway(playRecordRef, () => onClickAway())
 
@@ -47,7 +50,7 @@ const PlayRecord: React.FC<IProps> = ({ show, onClickAway }) => {
                   className={cn(styles.tab, activeTab === key && styles.active)}
                   onClick={() => setActiveTab(TABS[key].tabKey)}
                 >
-                  {TABS[key].tab}
+                  {t(TABS[key].tab)}
                 </div>
               )
             })}

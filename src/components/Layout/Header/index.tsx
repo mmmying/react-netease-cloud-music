@@ -4,6 +4,7 @@ import { Icon } from '@blueprintjs/core'
 
 import Navbar from './Navbar'
 import Searcher from './Searcher'
+import LanguageSwitcher from '../../LanguageSwitcher'
 import { PlayMusicStateContext, PlayMusicDispatchContext, ACTIONS } from 'reducers/playMusic'
 // import { REPOSITORY } from 'constants/github'
 import styles from './style.module.css'
@@ -52,6 +53,7 @@ const Header = () => {
         <div>{!showLyric && <Navbar />}</div>
         <div className={styles.operations}>
           <Searcher />
+          <LanguageSwitcher />
           {/* <div className={styles.githubLogo} onClick={() => window.open(REPOSITORY)} /> */}
         </div>
       </div>

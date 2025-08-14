@@ -9,6 +9,8 @@ import { formatTime } from 'helpers/time'
 import { PlayMusicStateContext, AudioContext } from 'reducers/playMusic'
 import styles from './style.module.css'
 
+import { useTranslation } from "react-i18next";
+
 interface IProps {
   data: IMyMusic[]
   onDoubleClick: (item: IMyMusic) => void
@@ -20,6 +22,8 @@ const { useContext } = React
 const List: React.FC<IProps> = ({ data, onDoubleClick, onClear }) => {
   const state = useContext(PlayMusicStateContext)
   const audioInfo = useContext(AudioContext)
+  
+  const { t } = useTranslation();
 
   const columns: IColumn<IMyMusic, keyof IMyMusic>[] = [
     {
@@ -59,7 +63,7 @@ const List: React.FC<IProps> = ({ data, onDoubleClick, onClear }) => {
   return (
     <>
       <div className={styles.header}>
-        <div className={styles.count}>总{data.length}首</div>
+        <div className={styles.count}>{t('common.total')} {data.length}</div>
         {data.length > 0 && (
           <div className={styles.actions}>
             <div onClick={onClear}>

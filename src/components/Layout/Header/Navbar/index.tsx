@@ -5,10 +5,12 @@ import ROUTES from "constants/routes";
 
 import styles from "./style.module.css";
 
+import { useTranslation } from "react-i18next";
+
 const NAVBAR = {
   [ROUTES.DISCOVERY]: [
     {
-      label: "个性推荐",
+      label: "navigation.recommend",
       route: `${ROUTES.DISCOVERY}/${ROUTES.RECOMMENDATION}`
     },
     // {
@@ -16,7 +18,7 @@ const NAVBAR = {
     //   route: `${ROUTES.DISCOVERY}/${ROUTES.RECOMMEND_DAILY}`,
     // },
     {
-      label: "歌单",
+      label: "navigation.playlist",
       route: `${ROUTES.DISCOVERY}/${ROUTES.SONG_LIST}`
     },
     // {
@@ -28,7 +30,7 @@ const NAVBAR = {
     //   route: ROUTES.SINGERS,
     // },
     {
-      label: "最新音乐",
+      label: "navigation.latest",
       route: `${ROUTES.DISCOVERY}/${ROUTES.LATEST_MUSIC}`
     }
   ],
@@ -47,12 +49,14 @@ const NAVBAR = {
 const Navbar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const { t } = useTranslation();
 
   const matchPathPrefix = Object.keys(NAVBAR).find(key => pathname.startsWith(key));
 
   if (!matchPathPrefix) {
     return null;
   }
+
 
   const items = NAVBAR[matchPathPrefix];
 
@@ -69,7 +73,7 @@ const Navbar = () => {
 
         return (
           <div key={label} className={cn(styles.item, isActive ? styles.active : "")} onClick={() => handleItemClick(route)}>
-            {label}
+            {t(label)}
           </div>
         );
       })}

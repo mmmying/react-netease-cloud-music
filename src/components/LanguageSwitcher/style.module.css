@@ -1,0 +1,51 @@
+.languageSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+}
+
+.langSelect {
+  padding: 6px 12px;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  color: #333;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  min-width: 100px;
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 32px;
+}
+
+.langSelect:hover {
+  border-color: #1890ff;
+}
+
+.langSelect:focus {
+  border-color: #1890ff;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+.langButton.active:hover {
+  background: #40a9ff;
+  border-color: #40a9ff;
+}
+
+@media (max-width: 768px) {
+  .languageSwitcher {
+    gap: 4px;
+  }
+  
+  .langButton {
+    padding: 4px 8px;
+    font-size: 12px;
+    min-width: 50px;
+  }
+}

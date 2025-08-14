@@ -11,13 +11,18 @@ import PlayOperations from "./PlayOperations";
 import PlayVolume from "./PlayVolume";
 
 import { PlayMusicStateContext, PlayMusicDispatchContext, ACTIONS } from "reducers/playMusic";
+
+import { useTranslation } from "react-i18next";
+
 const { useContext, useState, useCallback } = React;
+
 
 const Footer = () => {
   const [showPlayRecord, setShowPlayRecord] = useState(false);
   const state = useContext(PlayMusicStateContext);
   const dispatch = useContext(PlayMusicDispatchContext);
   const { musicId, music, showLyric } = state;
+  const { t } = useTranslation();
 
   const togglePlayRecord = useCallback(() => {
     setShowPlayRecord(!showPlayRecord);
@@ -85,7 +90,7 @@ const Footer = () => {
           <PlayMode />
         </div>
         <div onClick={togglePlayRecord} className={styles.item}>
-          <Tooltip content="打开播放列表">
+          <Tooltip content={t('music.openPlaylist')}>
             <Icon icon="menu-closed" className={showPlayRecord ? "active" : ""} />
           </Tooltip>
         </div>

@@ -13,6 +13,7 @@ import { setSearchHistory, searchHistoryLocalStorage } from 'helpers/search'
 import { debounce } from 'helpers/fn'
 import ROUTES from 'constants/routes'
 import styles from './style.module.css'
+import { useTranslation } from "react-i18next";
 
 const { useEffect, useState, useMemo, useRef } = React
 
@@ -27,6 +28,8 @@ const Searcher = () => {
   const [state, searchHotFn] = useAsyncFn(searchApis.searchHot)
   const [searchState, searchSuggestFn] = useAsyncFn(searchApis.searchSuggest)
   const { value: searchResult } = searchState
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     searchHotFn()
@@ -72,7 +75,7 @@ const Searcher = () => {
         <Icon icon='search' />
         <input
           ref={(ref) => (inputRef.current = ref)}
-          placeholder='搜索'
+          placeholder={t('common.search')}
           value={keyword}
           onFocus={handleInputFocus}
           onChange={({ target: { value } }) => {

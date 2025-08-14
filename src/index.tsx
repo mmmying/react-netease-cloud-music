@@ -8,6 +8,9 @@ import { BrowserRouter } from "react-router-dom";
 import { ApolloProvider } from "@apollo/client";
 import client from "./apollo-client";
 
+// 导入i18n配置
+import './i18n';
+
 // import 'normalize.css/normalize.css'
 import '@blueprintjs/core/lib/css/blueprint.css'
 import './styles/global.module.css'

@@ -3,6 +3,8 @@ import cn from 'classnames'
 
 import styles from './style.module.css'
 
+import { useTranslation } from "react-i18next";
+
 export interface IColumn<RecordType, Key extends keyof RecordType> {
   title?: string
   key: Key
@@ -25,6 +27,7 @@ function Table<RecordType extends Record<string, any> = any>({
   onDoubleClick = () => {},
   isRecordRowDisabled,
 }: IProps<RecordType>) {
+  const { t } = useTranslation();
   return (
     <div className={styles.root}>
       {showHeader && (
@@ -61,7 +64,7 @@ function Table<RecordType extends Record<string, any> = any>({
           })}
         </div>
       ) : (
-        <div className={styles.empty}>暂无数据喔</div>
+        <div className={styles.empty}>{t('common.noData')}</div>
       )}
     </div>
   )
